@@ -51,7 +51,7 @@ Push Changes: • Push your changes to your forked repository: perl Copy code gi
 Create a Pull Request: • Go to the original repository on GitHub and create a pull request. Provide a detailed description of the changes you have made and why they should be merged.
 Code of Conduct:
 
-Please note that this project adheres to a Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to [e.nwonye0320231@arts.ac.uk].
+Please note that this project adheres to a Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to [emmi.vibe2019@gmail.com].
 
 Reporting Issues:
 
@@ -81,6 +81,6 @@ For any inquiries or feedback, please contact:
 
 • Emmanuel Nwonye
 
-• Email: e.nwonye0320231@arts.ac.uk
+• Email: emmi.vibe2019@gmail.com
 
 • LinkedIn: linkedin.com/in/emmanuel-nwonye-40a024183
