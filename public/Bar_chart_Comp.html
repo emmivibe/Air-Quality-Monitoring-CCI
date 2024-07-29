@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Bar Charts</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: lightgray;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: gray;
+            color: white;
+        }
+
+        .axis-label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .legend {
+            font-size: 12px;
+        }
+
+        .bar {
+            fill: steelblue;
+        }
+
+        .bar:hover {
+            fill: orange;
+        }
+
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            width: 60px;
+            height: 28px;
+            padding: 2px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Air Quality Data Comparison</div>
+    <div id="buttons">
+        <select id="dataset-select" onchange="loadSelectedData()">
+            <option value="data/readings_greencoat.json">Greencoat</option>
+            <option value="data/readings_hh302.json">HH_302</option>
+            <option value="data/readings_hh308.json">HH_308</option>
+        </select>
+        <button class="button" onclick="updateChart('co2')">CO2 Levels</button>
+        <button class="button" onclick="updateChart('temperature')">Temperature</button>
+        <button class="button" onclick="updateChart('humidity')">Humidity</button>
+        <button class="button" onclick="updateChart('tvoc')">TVOC Index</button>
+        <button class="button" onclick="updateChart('pm10')">PM10</button>
+    </div>
+    <svg width="800" height="500"></svg>
+    <script src="Bar_chart_Comp.js"></script>
+</body>
+</html>

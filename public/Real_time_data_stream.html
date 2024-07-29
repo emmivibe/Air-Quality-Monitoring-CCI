@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-time Air Quality Data Stream Simulation with D3.js</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .chart {
+      width: 100%;
+      max-width: 1200px;
+      margin: 20px 0;
+    }
+
+    .tooltip {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      pointer-events: none;
+      font-size: 12px;
+      color: #333;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .axis-label {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .controls {
+      margin-bottom: 10px;
+    }
+    .pm-standards-table {
+        width: 50%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .pm-standards-table th,
+    .pm-standards-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    
+    .pm-standards-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+    
+    .pm-standards-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    .legend {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <select id="building">
+      <option value="Greencoat GB_G03">Greencoat GB_G03</option>
+      <option value="Greencoat GB_G04">Greencoat GB_G04</option>
+      <option value="Peckham PR_B501-01">Peckham PR_B501-01</option>
+      <option value="Peckham PR_B501-02">Peckham PR_B501-02</option>
+      <option value="Peckham PR_B501-03">Peckham PR_B501-03</option>
+      <option value="High Holborn HH_302">High Holborn HH_302</option>
+      <option value="High Holborn HH_308">High Holborn HH_308</option>
+    </select>
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+    <button id="stop">Stop</button>
+    <label for="download-date">Download data for date:</label>
+    <input type="date" id="download-date">
+    <button id="download">Download Data</button>
+  </div>
+  <div id="chart" class="chart"></div>
+  <div class="legend" id="legend"></div>
+  <div class="tooltip" id="tooltip"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/mqttws31.min.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (Notification.permission !== "granted") {
+        Notification.requestPermission();
+      }
+    });
+  </script>
+  <script src="Real_time_data_stream.js"></script>
+</body>
+</html>
